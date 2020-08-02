@@ -24,9 +24,7 @@ buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
 var buttonScissors = document.getElementById('button-scissors');
 buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });
 
-/**
- * Describe this function...
- */
+
 function getMoveName(argMoveId) {
   console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
   if (argMoveId == 1) {
@@ -47,9 +45,9 @@ function getMoveName(argMoveId) {
 function displayResult(argPlayerMove, argComputerMove) {
   if ((argPlayerMove == 'papier' && argComputerMove == 'kamień')
        || ((argPlayerMove == 'nożyce') && (argComputerMove == 'papier'))
-       || ((argPlayerMove == 'kamień') && (computerMove == 'nożyce'))) {
+       || ((argPlayerMove == 'kamień') && (argComputerMove == 'nożyce'))) {
     printMessage('Wygrywasz!');
-  } else if (argPlayerMove == computerMove) {
+  } else if (argPlayerMove == argComputerMove) {
     printMessage('remis');
   } else {
     printMessage('przegywasz')
