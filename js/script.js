@@ -1,31 +1,31 @@
-function printMessage(msg){
+const printMessage = function (msg){
 	var div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('messages').appendChild(div);
 }
 
-function clearMessages(){
+const clearMessages = function (){
 	document.getElementById('messages').innerHTML = '';
 }
 
-function buttonClicked(argButtonName) {
+const buttonClicked = function (argButtonName) {
   clearMessages();
 
-  var randomNumber = Math.floor(Math.random() * 3 + 1);
-  var computerMove = getMoveName(randomNumber)
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
+  const computerMove = getMoveName(randomNumber)
   
   displayResult(argButtonName, computerMove);
 }
 
-var buttonRock = document.getElementById('button-rock');
+const buttonRock = document.getElementById('button-rock');
 buttonRock.addEventListener('click', function(){ buttonClicked('kamień'); });
-var buttonPaper = document.getElementById('button-paper');
+const buttonPaper = document.getElementById('button-paper');
 buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
-var buttonScissors = document.getElementById('button-scissors');
+const buttonScissors = document.getElementById('button-scissors');
 buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });
 
 
-function getMoveName(argMoveId) {
+const getMoveName = function(argMoveId) {
   console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
   if (argMoveId == 1) {
     return 'kamień';
@@ -33,16 +33,14 @@ function getMoveName(argMoveId) {
     return 'papier';
   } else if (argMoveId == 3) {
     return 'nożyce';
-  } else {
-    printMessage('Nie znam ruchu o id ' + argMoveId + '. Zakładam, że chodziło o "kamień".');
-    return 'kamień';
+  } 
   }
-}
+
 
 /**
  * Describe this function...
  */
-function displayResult(argPlayerMove, argComputerMove) {
+const displayResult = function(argPlayerMove, argComputerMove) {
   if ((argPlayerMove == 'papier' && argComputerMove == 'kamień')
        || ((argPlayerMove == 'nożyce') && (argComputerMove == 'papier'))
        || ((argPlayerMove == 'kamień') && (argComputerMove == 'nożyce'))) {
